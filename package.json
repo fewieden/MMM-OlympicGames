@@ -1,0 +1,22 @@
+{
+  "name": "mmm-olympicgames",
+  "version": "1.0.0",
+  "description": "Olympic Games Module for MagicMirror2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fewieden/MMM-OlympicGames.git"
+  },
+  "keywords": [
+    "MagicMirror",
+    "Olympic Games"
+  ],
+  "author": "fewieden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fewieden/MMM-OlympicGames/issues"
+  },
+  "homepage": "https://github.com/fewieden/MMM-OlympicGames#readme",
+  "dependencies": {
+    "request": "^2.74.0"
+  }
+}
