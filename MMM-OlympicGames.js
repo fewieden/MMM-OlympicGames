@@ -1,3 +1,5 @@
+/* global Module Log */
+
 /* Magic Mirror
  * Module: MMM-OlympicGames
  *
@@ -5,7 +7,7 @@
  * MIT Licensed.
  */
 
-Module.register("MMM-OlympicGames", {
+Module.register('MMM-OlympicGames', {
 
     defaults: {
         maxRows: 10,
@@ -14,50 +16,49 @@ Module.register("MMM-OlympicGames", {
         reloadInterval: 30 * 60 * 1000       // every 30 minutes
     },
 
-    getTranslations: function () {
+    getTranslations() {
         return {
-            en: "translations/en.json",
-            de: "translations/de.json"
+            en: 'translations/en.json',
+            de: 'translations/de.json'
         };
     },
 
-    getStyles: function () {
-        return ["MMM-OlympicGames.css"];
+    getStyles() {
+        return ['MMM-OlympicGames.css'];
     },
 
-    start: function () {
-        Log.info("Starting module: " + this.name);
-        this.sendSocketNotification("CONFIG", this.config);
+    start() {
+        Log.info(`Starting module: ${this.name}`);
+        this.sendSocketNotification('CONFIG', this.config);
     },
 
-    socketNotificationReceived: function (notification, payload) {
-        if (notification === "MEDALS") {
+    socketNotificationReceived(notification, payload) {
+        if (notification === 'MEDALS') {
             this.medals = payload;
             this.updateDom();
         }
     },
 
-    getDom: function () {
-
-        var wrapper = document.createElement("div");
-        var header = document.createElement("header");
+    getDom() {
+        const wrapper = document.createElement('div');
+        const header = document.createElement('header');
         header.innerHTML = this.translate(this.config.title);
         wrapper.appendChild(header);
 
         if (!this.medals) {
-            var text = document.createElement("div");
-            text.innerHTML = this.translate("LOADING");
-            text.classList.add("dimmed", "light");
+            const text = document.createElement('div');
+            text.innerHTML = this.translate('LOADING');
+            text.classList.add('dimmed', 'light');
             wrapper.appendChild(text);
         } else {
-            var table = document.createElement("table");
-            table.classList.add("small", "table");
+            const table = document.createElement('table');
+            table.classList.add('small', 'table');
 
             table.appendChild(this.createLabelRow());
 
-            var included = false;
+            let included = false;
 
-            for (var i = 0; i < this.medals.length; i++) {
+            for (let i = 0; i < this.medals.length; i += 1) {
                 if (i < this.config.maxRows) {
                     if (this.medals[i].country_name === this.config.highlight) {
                         included = true;
@@ -90,55 +91,55 @@ Module.register("MMM-OlympicGames", {
         return wrapper;
     },
 
-    createLabelRow: function () {
-        var labelRow = document.createElement("tr");
+    createLabelRow() {
+        const labelRow = document.createElement('tr');
 
-        var placeLabel = document.createElement("th");
-        placeLabel.innerHTML = "#";
+        const placeLabel = document.createElement('th');
+        placeLabel.innerHTML = '#';
         labelRow.appendChild(placeLabel);
 
-        var countryLabel = document.createElement("th");
-        countryLabel.innerHTML = this.translate("COUNTRY");
+        const countryLabel = document.createElement('th');
+        countryLabel.innerHTML = this.translate('COUNTRY');
         labelRow.appendChild(countryLabel);
 
-        var goldLabel = document.createElement("th");
-        goldLabel.innerHTML = this.translate("GOLD");
+        const goldLabel = document.createElement('th');
+        goldLabel.innerHTML = this.translate('GOLD');
         labelRow.appendChild(goldLabel);
 
-        var silverLabel = document.createElement("th");
-        silverLabel.innerHTML = this.translate("SILVER");
+        const silverLabel = document.createElement('th');
+        silverLabel.innerHTML = this.translate('SILVER');
         labelRow.appendChild(silverLabel);
 
-        var bronzeLabel = document.createElement("th");
-        bronzeLabel.innerHTML = this.translate("BRONZE");
+        const bronzeLabel = document.createElement('th');
+        bronzeLabel.innerHTML = this.translate('BRONZE');
         labelRow.appendChild(bronzeLabel);
 
         return labelRow;
     },
 
-    createDataRow: function (data) {
-        var row = document.createElement("tr");
+    createDataRow(data) {
+        const row = document.createElement('tr');
         if (this.config.highlight === data.country_name) {
-            row.classList.add("bright");
+            row.classList.add('bright');
         }
 
-        var place = document.createElement("td");
+        const place = document.createElement('td');
         place.innerHTML = data.place;
         row.appendChild(place);
 
-        var country = document.createElement("td");
+        const country = document.createElement('td');
         country.innerHTML = data.country_name;
         row.appendChild(country);
 
-        var gold = document.createElement("td");
+        const gold = document.createElement('td');
         gold.innerHTML = data.gold_count;
         row.appendChild(gold);
 
-        var silver = document.createElement("td");
+        const silver = document.createElement('td');
         silver.innerHTML = data.silver_count;
         row.appendChild(silver);
 
-        var bronze = document.createElement("td");
+        const bronze = document.createElement('td');
         bronze.innerHTML = data.bronze_count;
         row.appendChild(bronze);
 
