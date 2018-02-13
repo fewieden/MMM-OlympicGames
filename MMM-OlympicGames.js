@@ -12,7 +12,7 @@ Module.register('MMM-OlympicGames', {
     defaults: {
         maxRows: 10,
         highlight: false,
-        title: 'Olympic Games Rio 2016',
+        title: 'Olympic Winter Games 2018',
         reloadInterval: 30 * 60 * 1000       // every 30 minutes
     },
 
@@ -60,11 +60,11 @@ Module.register('MMM-OlympicGames', {
 
             for (let i = 0; i < this.medals.length; i += 1) {
                 if (i < this.config.maxRows) {
-                    if (this.medals[i].country_name === this.config.highlight) {
+                    if (this.medals[i].country === this.config.highlight) {
                         included = true;
                     }
                     table.appendChild(this.createDataRow(this.medals[i]));
-                } else if (this.medals[i].country_name === this.config.highlight && !included) {
+                } else if (this.medals[i].country === this.config.highlight && !included) {
                     included = true;
                     table.removeChild(table.lastChild);
                     table.appendChild(this.createDataRow(this.medals[i]));
@@ -78,10 +78,10 @@ Module.register('MMM-OlympicGames', {
                 }
                 table.appendChild(this.createDataRow({
                     place: this.medals.length,
-                    country_name: this.config.highlight,
-                    gold_count: 0,
-                    silver_count: 0,
-                    bronze_count: 0
+                    country: this.config.highlight,
+                    gold: 0,
+                    silver: 0,
+                    bronze: 0
                 }));
             }
 
@@ -119,7 +119,7 @@ Module.register('MMM-OlympicGames', {
 
     createDataRow(data) {
         const row = document.createElement('tr');
-        if (this.config.highlight === data.country_name) {
+        if (this.config.highlight === data.country) {
             row.classList.add('bright');
         }
 
@@ -128,19 +128,19 @@ Module.register('MMM-OlympicGames', {
         row.appendChild(place);
 
         const country = document.createElement('td');
-        country.innerHTML = data.country_name;
+        country.innerHTML = data.country;
         row.appendChild(country);
 
         const gold = document.createElement('td');
-        gold.innerHTML = data.gold_count;
+        gold.innerHTML = data.gold;
         row.appendChild(gold);
 
         const silver = document.createElement('td');
-        silver.innerHTML = data.silver_count;
+        silver.innerHTML = data.silver;
         row.appendChild(silver);
 
         const bronze = document.createElement('td');
-        bronze.innerHTML = data.bronze_count;
+        bronze.innerHTML = data.bronze;
         row.appendChild(bronze);
 
         return row;

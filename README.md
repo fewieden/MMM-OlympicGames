@@ -35,5 +35,5 @@ Olympic Games Module for MagicMirror<sup>2</sup>
 | --- | --- | --- |
 | `highlight` | `false` | Which country should be highlighted 'COUNTRYNAME'. |
 | `maxRows` | `10` | How many countries should be displayed. |
-| `title` | `'Olympic Games Rio 2016'` | The title above the medal table |
+| `title` | `'Olympic Winter Games 2018'` | The title above the medal table |
 | `reloadInterval` | `1800000` (30 mins) | How often should the data be fetched |
