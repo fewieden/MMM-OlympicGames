@@ -1,0 +1,27 @@
+<header>{{ config.title }}</header>
+{% if not countries %}
+    <div class="dimmed light">{{ "LOADING" | translate }}</div>
+{% else %}
+    <table class="small table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>{{ "COUNTRY" | translate }}</th>
+                <th>{{ "GOLD" | translate }}</th>
+                <th>{{ "SILVER" | translate }}</th>
+                <th>{{ "BRONZE" | translate }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for country in countries %}
+                <tr class="{{ "bright" if config.highlight === country.code }}">
+                    <td>{{ country.rank }}</td>
+                    <td>{{ country.name }}</td>
+                    <td>{{ country.gold }}</td>
+                    <td>{{ country.silver }}</td>
+                    <td>{{ country.bronze }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
