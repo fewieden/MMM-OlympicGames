@@ -1,8 +1,13 @@
 {
   "COUNTRY": "Country",
-  "Olympic Winter Games 2018": "Olympic Winter Games 2018",
   "LOADING": "Loading...",
   "GOLD": "Gold",
   "SILVER": "Silver",
-  "BRONZE": "Bronze"
+  "BRONZE": "Bronze",
+  "EOR": "Refugee Olympic Team",
+  "IOA": "Independent Olympic Athletes",
+  "IOP": "Independent Olympic Participants",
+  "ROT": "Refugee Olympic Team",
+  "ROC": "Russian Olympic Committee",
+  "OAR": "Olympic Athletes from Russia"
 }
