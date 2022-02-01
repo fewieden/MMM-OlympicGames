@@ -27,6 +27,7 @@ MagicMirror² version >= 2.15.0 required.
 ### Removed
 
 * Dependency: `request`
+* Travis-CI integration
 
 ## [1.0.0]
 
