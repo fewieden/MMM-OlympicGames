@@ -13,7 +13,7 @@ const _ = require('lodash');
 const NodeHelper = require('node_helper');
 const Log = require('logger');
 
-const {getCountryAlpha2Code} = require('./countries');
+const { getCountryAlpha2Code } = require('./countries');
 
 const DATA_URL = 'https://www.bloomberg.com/graphics/beijing-2022-olympics-data/current.json';
 
@@ -57,7 +57,7 @@ module.exports = NodeHelper.create({
             const mappedCountries = _.map(sortedCountries, this.mapCountry);
 
             this.sendSocketNotification('COUNTRIES', mappedCountries);
-        } catch(e) {
+        } catch (e) {
             Log.error('Error getting olympic game medals', e);
         }
     }

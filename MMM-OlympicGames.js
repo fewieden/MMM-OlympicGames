@@ -1,4 +1,4 @@
-/* global Module Log */
+/* global Module Log config */
 
 /* Magic Mirror
  * Module: MMM-OlympicGames
@@ -45,7 +45,7 @@ Module.register('MMM-OlympicGames', {
 
     getTemplateData() {
         if (!Array.isArray(this.countries)) {
-            return {config: this.config};
+            return { config: this.config };
         }
 
         return {
@@ -66,7 +66,7 @@ Module.register('MMM-OlympicGames', {
                 ? regionNames.of(country.code)
                 : this.translate(country.code);
 
-            return {...country, name};
+            return { ...country, name };
         });
     },
 
