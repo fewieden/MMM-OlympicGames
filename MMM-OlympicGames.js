@@ -1,6 +1,6 @@
 /* global Module Log config */
 
-/* Magic Mirror
+/* MagicMirror²
  * Module: MMM-OlympicGames
  *
  * By fewieden https://github.com/fewieden/MMM-OlympicGames
