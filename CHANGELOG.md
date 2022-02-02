@@ -5,11 +5,13 @@
 ### Fixed
 
 * Fix linter
+
 ### Added
 
 ### Changed
 
 * Uniform spelling for MagicMirror²
+
 ### Removed
 
 ## [1.1.0]
