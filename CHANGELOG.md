@@ -1,5 +1,17 @@
 # MMM-OlympicGames Changelog
 
+## [Unreleased]
+
+### Fixed
+
+* Fix linter
+### Added
+
+### Changed
+
+* Uniform spelling for MagicMirror²
+### Removed
+
 ## [1.1.0]
 
 MagicMirror² version >= 2.15.0 required.
