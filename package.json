@@ -3,7 +3,8 @@
   "version": "1.1.0",
   "description": "Olympic Games Module for MagicMirror²",
   "scripts": {
-    "lint": "eslint . && stylelint **/*.css"
+    "lint": "eslint . && stylelint **/*.css",
+    "lint:fix": "eslint --fix . && stylelint --fix **/*.css"
   },
   "repository": {
     "type": "git",
@@ -20,8 +21,13 @@
   },
   "homepage": "https://github.com/fewieden/MMM-OlympicGames#readme",
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-recommended": "^4.1.0",
+    "eslint": "^8.8.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1",
     "stylelint": "^14.3.0",
     "stylelint-config-standard": "^24.0.0"
   },
