@@ -5,9 +5,7 @@
  * MIT Licensed.
  */
 
-const fetch = (...args) =>
-    // eslint-disable-next-line no-shadow
-    import("node-fetch").then(({ default: fetch }) => fetch(...args));
+const fetch = require("node-fetch");
 const _ = require("lodash");
 
 const NodeHelper = require("node_helper");
