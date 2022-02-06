@@ -6,7 +6,11 @@
 
 ### Added
 
+* Data request is using referer from website
+
 ### Changed
+
+* Countries with same medals share the same rank
 
 ### Removed
 
