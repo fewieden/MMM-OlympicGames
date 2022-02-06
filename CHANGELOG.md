@@ -14,6 +14,20 @@
 
 ### Removed
 
+## [1.2.0]
+
+* Fix linter
+
+### Added
+
+* Added another data source, see new config option `provider`.
+
+### Changed
+
+### Removed
+
+* Countries with same medals share the same rank
+
 ## [1.1.0]
 
 MagicMirror² version >= 2.15.0 required.

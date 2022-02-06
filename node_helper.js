@@ -5,62 +5,36 @@
  * MIT Licensed.
  */
 
-const fetch = require("node-fetch");
-const _ = require("lodash");
-
 const NodeHelper = require("node_helper");
 const Log = require("logger");
-
-const { getCountryAlpha2Code } = require("./countries");
-
-const DATA_URL =
-    "https://www.bloomberg.com/graphics/beijing-2022-olympics-data/current.json";
+const providers = require("./providers");
 
 module.exports = NodeHelper.create({
     requiresVersion: "2.15.0",
 
     socketNotificationReceived(notification, payload) {
         if (notification === "CONFIG") {
+            this.config = payload;
             this.getCountryMedals();
             setInterval(() => {
                 this.getCountryMedals();
-            }, payload.reloadInterval);
+            }, this.config.reloadInterval);
         }
-    },
-
-    mapCountry(entry = {}, index) {
-        return {
-            rank: index + 1,
-            code: getCountryAlpha2Code(entry.noc),
-            gold: entry.gold,
-            silver: entry.silver,
-            bronze: entry.bronze
-        };
     },
 
     async getCountryMedals() {
         try {
-            const response = await fetch(DATA_URL, {
-                headers: {
-                    "User-Agent":
-                        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"
-                }
-            });
+            const provider = providers[this.config.provider];
 
-            if (!response.ok) {
-                throw new Error("failed to fetch medals");
+            if (!provider) {
+                throw new Error(
+                    `Unsupported provider: ${this.config.provider}`
+                );
             }
 
-            const parsedResponse = await response.json();
-            const countries = _.get(parsedResponse, "data.medals");
-            const sortedCountries = _.orderBy(
-                countries,
-                ["gold", "silver", "bronze", "noc"],
-                ["desc", "desc", "desc", "asc"]
-            );
-            const mappedCountries = _.map(sortedCountries, this.mapCountry);
+            const countries = await provider.getCountryMedals();
 
-            this.sendSocketNotification("COUNTRIES", mappedCountries);
+            this.sendSocketNotification("COUNTRIES", countries);
         } catch (e) {
             Log.error("Error getting olympic game medals", e);
         }

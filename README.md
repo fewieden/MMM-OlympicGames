@@ -44,10 +44,11 @@ To set a global config you have to set the value in your config.js file inside t
 
 | **Option** | **Default** | **Description** |
 | --- | --- | --- |
-| `highlight` | `false` | Which country (alpha-2 code) should be highlighted. E.g. `'DE'` for `Germany`. You can find all alpha-2 codes [here](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).    |
+| `highlight` | `false` | Which country (alpha-2 code) should be highlighted. E.g. `'DE'` for `Germany`. You can find all alpha-2 codes [here](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). |
 | `maxRows` | `10` | How many countries should be displayed. |
 | `title` | `'Olympic Winter Games 2022'` | The title above the medal table. |
 | `reloadInterval` | `1800000` (30 mins) | How often should the data be fetched. |
+| `provider` | `'bloomberg'` | Specify the data source. Possible options: `'bloomberg'` and `'nbc'`. |
 
 ## Developer
 
