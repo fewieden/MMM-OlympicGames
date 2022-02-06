@@ -24,8 +24,6 @@
 
 ### Changed
 
-### Removed
-
 * Countries with same medals share the same rank
 
 ## [1.1.0]
