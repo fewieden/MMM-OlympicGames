@@ -1,18 +1,14 @@
 # MMM-OlympicGames Changelog
 
-## [Unreleased]
-
-### Fixed
+## [1.2.0]
 
 ### Added
 
-* Data request is using referer from website
+* Added another data source, see new config option `provider`.
 
 ### Changed
 
 * Countries with same medals share the same rank
-
-### Removed
 
 ## [1.1.0]
 
