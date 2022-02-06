@@ -12,7 +12,8 @@ Module.register('MMM-OlympicGames', {
         maxRows: 10,
         highlight: false,
         title: 'Olympic Winter Games 2022',
-        reloadInterval: 30 * 60 * 1000 // every 30 minutes
+        reloadInterval: 30 * 60 * 1000, // every 30 minutes
+        provider: 'bloomberg'
     },
 
     getTranslations() {
