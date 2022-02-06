@@ -49,6 +49,7 @@ To set a global config you have to set the value in your config.js file inside t
 | `title` | `'Olympic Winter Games 2022'` | The title above the medal table. |
 | `reloadInterval` | `1800000` (30 mins) | How often should the data be fetched. |
 | `provider` | `'bloomberg'` | Specify the data source. Possible options: `'bloomberg'` and `'nbc'`. |
+| `countryList` | `[ "NO", "AU", "US", "DE", "FR", "CA" ]` | Specify a list of country codes to display (alpha-2 code). |
 
 ## Developer
 
