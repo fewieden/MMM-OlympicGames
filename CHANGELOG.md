@@ -16,8 +16,6 @@
 
 ## [1.2.0]
 
-* Fix linter
-
 ### Added
 
 * Added another data source, see new config option `provider`.
