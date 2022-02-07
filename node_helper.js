@@ -25,14 +25,14 @@ module.exports = NodeHelper.create({
         }
     },
 
-    formatResults: function(payload, countries) {
-        let ret = [];
-        let cntr = payload;
-        let countryData = countries;
+    formatResults(payload, countries) {
+        const ret = [];
+        const cntr = payload;
+        const countryData = countries;
         if (cntr.countryList) {
             for (const key in countryData) {
                 const value = countryData[key];
-                if (cntr.countryList.indexOf(value[countryData.code]) != -1) {
+                if (cntr.countryList.indexOf(value[countryData.code]) !== -1) {
                     ret.push(value);
                 }
             }
