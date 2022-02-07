@@ -25,6 +25,23 @@ module.exports = NodeHelper.create({
         }
     },
 
+    formatResults: function(payload, countries) {
+        var ret = []
+        var cntr = payload
+        var countryData = countries
+            if (cntr.countryList) {
+                for (let key in countryData) {
+                    let value = countryData[key]
+                    if (cntr.countryList.indexOf(value["code"]) != -1) {
+                        ret.push(value)
+                    }
+                }
+                this.sendSocketNotification('COUNTRIES', ret)
+            } else {
+                this.sendSocketNotification('COUNTRIES', countryData);
+            }
+    },
+
     async getCountryMedals(payload) {
         const cntr = payload
         try {
@@ -35,20 +52,7 @@ module.exports = NodeHelper.create({
             }
 
             const countries = await provider.getCountryMedals();
-
-            var ret = []
-
-            if (cntr.countryList) {
-                for (let key in countries) {
-                    let value = countries[key]
-                    if (cntr.countryList.indexOf(value["code"]) != -1) {
-                        ret.push(value)
-                    }
-                }
-                this.sendSocketNotification('COUNTRIES', ret)
-            } else {
-                this.sendSocketNotification('COUNTRIES', countries);
-            }
+            this.formatResults(payload, countries)
         } catch (e) {
             Log.error('Error getting olympic game medals', e);
         }
