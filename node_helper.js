@@ -32,7 +32,7 @@ module.exports = NodeHelper.create({
         if (cntr.countryList) {
             for (const key in countryData) {
                 const value = countryData[key];
-                if (cntr.countryList.indexOf(value[countryData.code]) !== -1) {
+                if (cntr.countryList.indexOf(value.code) !== -1) {
                     ret.push(value);
                 }
             }
