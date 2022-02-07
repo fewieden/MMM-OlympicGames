@@ -26,17 +26,17 @@ module.exports = NodeHelper.create({
     },
 
     formatResults: function(payload, countries) {
-        var ret = []
-        var cntr = payload
-        var countryData = countries
+        var ret = [];
+        var cntr = payload;
+        var countryData = countries;
         if (cntr.countryList) {
             for (let key in countryData) {
-                let value = countryData[key]
+                let value = countryData[key];
                 if (cntr.countryList.indexOf(value["code"]) != -1) {
-                    ret.push(value)
+                    ret.push(value);
                 }
             }
-            this.sendSocketNotification('COUNTRIES', ret)
+            this.sendSocketNotification('COUNTRIES', ret);
         } else {
             this.sendSocketNotification('COUNTRIES', countryData);
         }
@@ -52,7 +52,7 @@ module.exports = NodeHelper.create({
             }
 
             const countries = await provider.getCountryMedals();
-            this.formatResults(payload, countries)
+            this.formatResults(payload, countries);
         } catch (e) {
             Log.error('Error getting olympic game medals', e);
         }
