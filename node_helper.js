@@ -26,13 +26,13 @@ module.exports = NodeHelper.create({
     },
 
     formatResults: function(payload, countries) {
-        var ret = [];
-        var cntr = payload;
-        var countryData = countries;
+        let ret = [];
+        let cntr = payload;
+        let countryData = countries;
         if (cntr.countryList) {
-            for (let key in countryData) {
-                let value = countryData[key];
-                if (cntr.countryList.indexOf(value["code"]) != -1) {
+            for (const key in countryData) {
+                const value = countryData[key];
+                if (cntr.countryList.indexOf(value[countryData.code]) != -1) {
                     ret.push(value);
                 }
             }
@@ -43,7 +43,6 @@ module.exports = NodeHelper.create({
     },
 
     async getCountryMedals(payload) {
-        const cntr = payload
         try {
             const provider = providers[this.config.provider];
 
