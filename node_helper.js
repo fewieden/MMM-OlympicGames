@@ -29,17 +29,17 @@ module.exports = NodeHelper.create({
         var ret = []
         var cntr = payload
         var countryData = countries
-            if (cntr.countryList) {
-                for (let key in countryData) {
-                    let value = countryData[key]
-                    if (cntr.countryList.indexOf(value["code"]) != -1) {
-                        ret.push(value)
-                    }
+        if (cntr.countryList) {
+            for (let key in countryData) {
+                let value = countryData[key]
+                if (cntr.countryList.indexOf(value["code"]) != -1) {
+                    ret.push(value)
                 }
-                this.sendSocketNotification('COUNTRIES', ret)
-            } else {
-                this.sendSocketNotification('COUNTRIES', countryData);
             }
+            this.sendSocketNotification('COUNTRIES', ret)
+        } else {
+            this.sendSocketNotification('COUNTRIES', countryData);
+        }
     },
 
     async getCountryMedals(payload) {
