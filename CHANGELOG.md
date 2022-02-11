@@ -1,5 +1,11 @@
 # MMM-OlympicGames Changelog
 
+## [1.3.0]
+
+### Added
+
+* Added French language translations.
+
 ## [1.2.0]
 
 ### Added
