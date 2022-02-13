@@ -1,10 +1,16 @@
 # MMM-OlympicGames Changelog
 
-## [1.2.1]
+## [Unreleased]
+
+### Fixed
 
 ### Added
 
 * Added option for user to input list of countries, see config option `countryList`
+
+### Changed
+
+### Removed
 
 ## [1.2.0]
 
