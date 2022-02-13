@@ -4,7 +4,7 @@ Olympic Games Module for MagicMirror<sup>2</sup>
 
 ## Example
 
-![](.github/medals.png)
+![](.github/medals.png) ![](.github/countries.png)
 
 ## Dependencies
 

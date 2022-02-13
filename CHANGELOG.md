@@ -10,6 +10,8 @@
 
 ### Changed
 
+* Updated preview images
+
 ### Removed
 
 ## [1.2.0]
