@@ -18,31 +18,14 @@ module.exports = NodeHelper.create({
     socketNotificationReceived(notification, payload) {
         if (notification === 'CONFIG') {
             this.config = payload;
-            this.getCountryMedals(this.config);
+            this.getCountryMedals();
             setInterval(() => {
-                this.getCountryMedals(this.config);
+                this.getCountryMedals();
             }, this.config.reloadInterval);
         }
     },
 
-    formatResults(payload, countries) {
-        const ret = [];
-        const cntr = payload;
-        const countryData = countries;
-        if (cntr.countryList) {
-            for (const key in countryData) {
-                const value = countryData[key];
-                if (cntr.countryList.indexOf(value.code) !== -1) {
-                    ret.push(value);
-                }
-            }
-            this.sendSocketNotification('COUNTRIES', ret);
-        } else {
-            this.sendSocketNotification('COUNTRIES', countryData);
-        }
-    },
-
-    async getCountryMedals(payload) {
+    async getCountryMedals() {
         try {
             const provider = providers[this.config.provider];
 
@@ -51,7 +34,8 @@ module.exports = NodeHelper.create({
             }
 
             const countries = await provider.getCountryMedals();
-            this.formatResults(payload, countries);
+
+            this.sendSocketNotification('COUNTRIES', countries);
         } catch (e) {
             Log.error('Error getting olympic game medals', e);
         }
