@@ -7,6 +7,7 @@
 ### Added
 
 * Added option for user to input list of countries to display, see config option `countryList`.
+* Added French language translations.
 
 ### Changed
 

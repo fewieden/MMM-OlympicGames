@@ -20,7 +20,8 @@ Module.register('MMM-OlympicGames', {
     getTranslations() {
         return {
             en: 'translations/en.json',
-            de: 'translations/de.json'
+            de: 'translations/de.json',
+			fr: 'translations/fr.json',
         };
     },
 
