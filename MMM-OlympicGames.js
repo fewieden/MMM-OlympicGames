@@ -21,7 +21,7 @@ Module.register('MMM-OlympicGames', {
         return {
             en: 'translations/en.json',
             de: 'translations/de.json',
-			fr: 'translations/fr.json',
+            fr: 'translations/fr.json',
         };
     },
 
