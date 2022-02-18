@@ -11,6 +11,8 @@
 
 ### Changed
 
+* Uniform spelling for MagicMirror²
+* Upgraded development dependencies
 * Updated preview images
 
 ### Removed

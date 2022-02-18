@@ -1,6 +1,6 @@
 /* global Module Log config */
 
-/* Magic Mirror
+/* MagicMirror²
  * Module: MMM-OlympicGames
  *
  * By fewieden https://github.com/fewieden/MMM-OlympicGames
@@ -21,7 +21,7 @@ Module.register('MMM-OlympicGames', {
         return {
             en: 'translations/en.json',
             de: 'translations/de.json',
-			fr: 'translations/fr.json',
+            fr: 'translations/fr.json',
         };
     },
 
@@ -47,6 +47,7 @@ Module.register('MMM-OlympicGames', {
 
         if (this.config.highlight) {
             const highlightedIndex = this.countries.findIndex(country => country.code === this.config.highlight);
+
             if (highlightedIndex >= this.config.maxRows) {
                 slicedCountries[this.config.maxRows - 1] = this.countries[highlightedIndex];
             }

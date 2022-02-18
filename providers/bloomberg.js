@@ -36,7 +36,11 @@ async function getCountryMedals() {
 
     const parsedResponse = await response.json();
     const countries = _.get(parsedResponse, 'data.medals');
-    const sortedCountries = _.orderBy(countries, ['gold', 'silver', 'bronze', 'noc'], ['desc', 'desc', 'desc', 'asc']);
+    const sortedCountries = _.orderBy(
+        countries,
+        ['gold', 'silver', 'bronze', 'noc'],
+        ['desc', 'desc', 'desc', 'asc']
+    );
     const mappedCountries = _.map(sortedCountries, mapCountry);
     const rankedCountries = _.each(mappedCountries, setRank);
 

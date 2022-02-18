@@ -28,7 +28,11 @@ async function getCountryMedals() {
 
     const parsedResponse = await response.json();
     const countries = _.get(parsedResponse, 'MedalTableNOC');
-    const sortedCountries = _.orderBy(countries, ['n_Gold', 'n_Silver', 'n_Bronze', 'c_NOCShort'], ['desc', 'desc', 'desc', 'asc']);
+    const sortedCountries = _.orderBy(
+        countries,
+        ['n_Gold', 'n_Silver', 'n_Bronze', 'c_NOCShort'],
+        ['desc', 'desc', 'desc', 'asc']
+    );
     const mappedCountries = _.map(sortedCountries, mapCountry);
 
     return mappedCountries;
