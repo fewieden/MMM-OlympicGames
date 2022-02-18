@@ -1,6 +1,6 @@
 /* global Module Log config */
 
-/* Magic Mirror
+/* MagicMirror²
  * Module: MMM-OlympicGames
  *
  * By fewieden https://github.com/fewieden/MMM-OlympicGames
@@ -13,13 +13,15 @@ Module.register('MMM-OlympicGames', {
         highlight: false,
         title: 'Olympic Winter Games 2022',
         reloadInterval: 30 * 60 * 1000, // every 30 minutes
-        provider: 'bloomberg'
+        provider: 'bloomberg',
+        countryList: false
     },
 
     getTranslations() {
         return {
             en: 'translations/en.json',
-            de: 'translations/de.json'
+            de: 'translations/de.json',
+            fr: 'translations/fr.json',
         };
     },
 
@@ -31,17 +33,27 @@ Module.register('MMM-OlympicGames', {
         return `templates/${this.name}.njk`;
     },
 
+    filterCountryList() {
+        if (!Array.isArray(this.config.countryList)) {
+            return this.countries;
+        }
+
+        return this.countries.filter(country => this.config.countryList.includes(country.code));
+    },
+
     getCountriesToDisplay() {
-        const countries = this.countries.slice(0, this.config.maxRows);
+        const filteredCountries = this.filterCountryList();
+        const slicedCountries = filteredCountries.slice(0, this.config.maxRows);
 
         if (this.config.highlight) {
             const highlightedIndex = this.countries.findIndex(country => country.code === this.config.highlight);
+
             if (highlightedIndex >= this.config.maxRows) {
-                countries[this.config.maxRows - 1] = this.countries[highlightedIndex];
+                slicedCountries[this.config.maxRows - 1] = this.countries[highlightedIndex];
             }
         }
 
-        return countries;
+        return slicedCountries;
     },
 
     getTemplateData() {
@@ -57,6 +69,11 @@ Module.register('MMM-OlympicGames', {
 
     start() {
         Log.info(`Starting module: ${this.name}`);
+
+        if (Array.isArray(this.config.countryList)) {
+            this.config.maxRows = this.config.countryList.length;
+        }
+
         this.sendSocketNotification('CONFIG', this.config);
     },
 
