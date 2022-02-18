@@ -1,8 +1,6 @@
 # MMM-OlympicGames Changelog
 
-## [Unreleased]
-
-### Fixed
+## [1.3.0]
 
 ### Added
 
@@ -14,8 +12,6 @@
 * Uniform spelling for MagicMirror²
 * Upgraded development dependencies
 * Updated preview images
-
-### Removed
 
 ## [1.2.0]
 
