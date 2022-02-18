@@ -6,10 +6,14 @@
 
 ### Added
 
+* Added option for user to input list of countries to display, see config option `countryList`.
+* Added French language translations.
+
 ### Changed
 
 * Uniform spelling for MagicMirror²
 * Upgraded development dependencies
+* Updated preview images
 
 ### Removed
 
