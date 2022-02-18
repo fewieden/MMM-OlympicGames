@@ -1,3 +1,3 @@
-const { getCountryAlpha2Code } = require("./countries");
+const { getCountryAlpha2Code } = require('./countries');
 
 module.exports = { getCountryAlpha2Code };

@@ -7,24 +7,24 @@
  * MIT Licensed.
  */
 
-Module.register("MMM-OlympicGames", {
+Module.register('MMM-OlympicGames', {
     defaults: {
         maxRows: 10,
         highlight: false,
-        title: "Olympic Winter Games 2022",
+        title: 'Olympic Winter Games 2022',
         reloadInterval: 30 * 60 * 1000, // every 30 minutes
-        provider: "bloomberg"
+        provider: 'bloomberg'
     },
 
     getTranslations() {
         return {
-            en: "translations/en.json",
-            de: "translations/de.json"
+            en: 'translations/en.json',
+            de: 'translations/de.json'
         };
     },
 
     getStyles() {
-        return ["MMM-OlympicGames.css"];
+        return ['MMM-OlympicGames.css'];
     },
 
     getTemplate() {
@@ -35,12 +35,10 @@ Module.register("MMM-OlympicGames", {
         const countries = this.countries.slice(0, this.config.maxRows);
 
         if (this.config.highlight) {
-            const highlightedIndex = this.countries.findIndex(
-                (country) => country.code === this.config.highlight
-            );
+            const highlightedIndex = this.countries.findIndex(country => country.code === this.config.highlight);
+
             if (highlightedIndex >= this.config.maxRows) {
-                countries[this.config.maxRows - 1] =
-                    this.countries[highlightedIndex];
+                countries[this.config.maxRows - 1] = this.countries[highlightedIndex];
             }
         }
 
@@ -60,25 +58,22 @@ Module.register("MMM-OlympicGames", {
 
     start() {
         Log.info(`Starting module: ${this.name}`);
-        this.sendSocketNotification("CONFIG", this.config);
+        this.sendSocketNotification('CONFIG', this.config);
     },
 
     setCountryNames(countries) {
-        const regionNames = new Intl.DisplayNames(config.locale, {
-            type: "region"
-        });
-        return countries.map((country) => {
-            const name =
-                country.code.length === 2
-                    ? regionNames.of(country.code)
-                    : this.translate(country.code);
+        const regionNames = new Intl.DisplayNames(config.locale, { type: 'region' });
+        return countries.map(country => {
+            const name = country.code.length === 2
+                ? regionNames.of(country.code)
+                : this.translate(country.code);
 
             return { ...country, name };
         });
     },
 
     socketNotificationReceived(notification, payload) {
-        if (notification === "COUNTRIES") {
+        if (notification === 'COUNTRIES') {
             this.countries = this.setCountryNames(payload);
             this.updateDom(300);
         }

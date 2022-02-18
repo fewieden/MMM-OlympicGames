@@ -4,13 +4,12 @@
 
 ### Fixed
 
-* Fix linter
-
 ### Added
 
 ### Changed
 
 * Uniform spelling for MagicMirror²
+* Upgraded development dependencies
 
 ### Removed
 
