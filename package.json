@@ -1,6 +1,6 @@
 {
   "name": "mmm-olympicgames",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Olympic Games Module for MagicMirror²",
   "scripts": {
     "lint": "eslint . && stylelint **/*.css",
