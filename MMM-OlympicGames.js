@@ -11,9 +11,9 @@ Module.register('MMM-OlympicGames', {
     defaults: {
         maxRows: 10,
         highlight: false,
-        title: 'Olympic Winter Games 2022',
+        title: 'Paralympic Winter Games 2022',
         reloadInterval: 30 * 60 * 1000, // every 30 minutes
-        provider: 'bloomberg',
+        provider: 'paralympic',
         countryList: false
     },
 
