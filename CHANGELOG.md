@@ -1,5 +1,16 @@
 # MMM-OlympicGames Changelog
 
+## [1.4.0]
+
+### Added
+
+* Data provider: `paralympic`
+
+### Changed
+
+* Default provider: `paralympic`
+* Default title: `Paralympic Winter Games 2022`
+
 ## [1.3.0]
 
 ### Added
