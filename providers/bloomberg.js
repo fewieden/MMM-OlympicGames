@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 
 const { getCountryAlpha2Code } = require('./utils');
 
-const BASE_URL = 'https://www.bloomberg.com/graphics';
+const BASE_URL = 'https://www.bloomberg.com';
 
 function mapCountry(entry = {}) {
     return {
@@ -24,9 +24,9 @@ function setRank(entry, index, entries) {
 }
 
 async function getCountryMedals() {
-    const response = await fetch(`${BASE_URL}/beijing-2022-olympics-data/current.json`, {
+    const response = await fetch(`${BASE_URL}/bbg-gfx/graphics-data/olympics-data/main/2024/medals.json`, {
         headers: {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36'
         }
     });
 
@@ -35,7 +35,7 @@ async function getCountryMedals() {
     }
 
     const parsedResponse = await response.json();
-    const countries = _.get(parsedResponse, 'data.medals');
+    const countries = _.get(parsedResponse, 'data');
     const sortedCountries = _.orderBy(
         countries,
         ['gold', 'silver', 'bronze', 'noc'],

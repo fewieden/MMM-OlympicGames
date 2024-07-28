@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 
 const { getCountryAlpha2Code } = require('./utils');
 
-const BASE_URL = 'https://api-gracenote.nbcolympics.com/svc/games_v2.svc/json';
+const BASE_URL = 'https://api-gracenote.nbcolympics.com';
 
 function mapCountry(entry = {}) {
     return {
@@ -16,9 +16,9 @@ function mapCountry(entry = {}) {
 }
 
 async function getCountryMedals() {
-    const response = await fetch(`${BASE_URL}/GetMedalTable_Season?competitionSetId=2&season=20212022&languageCode=2`, {
+    const response = await fetch(`${BASE_URL}/svc/games_v2.svc/json/GetMedalTable_Season?competitionSetId=1&season=2024&languageCode=2`, {
         headers: {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36'
         }
     });
 
