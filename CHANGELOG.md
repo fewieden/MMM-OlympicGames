@@ -1,14 +1,15 @@
 # MMM-OlympicGames Changelog
 
-## [Unreleased]
+## [1.5.0]
 
 ### Fixed
 
-### Added
-
-### Changed
+* Data provider: `nbc`
+* Data provider: `bloomberg`
 
 ### Removed
+
+* Data provider: `paralympic`
 
 ## [1.4.0]
 
