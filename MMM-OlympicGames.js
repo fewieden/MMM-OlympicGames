@@ -11,9 +11,9 @@ Module.register('MMM-OlympicGames', {
     defaults: {
         maxRows: 10,
         highlight: false,
-        title: 'Paralympic Winter Games 2022',
+        title: 'Paris Summer Games 2024',
         reloadInterval: 30 * 60 * 1000, // every 30 minutes
-        provider: 'paralympic',
+        provider: 'nbc',
         countryList: false
     },
 

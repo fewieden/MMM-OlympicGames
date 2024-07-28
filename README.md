@@ -46,10 +46,10 @@ To set a global config you have to set the value in your config.js file inside t
 | --- | --- | --- |
 | `highlight` | `false` | Which country (alpha-2 code) should be highlighted. E.g. `'DE'` for `Germany`. You can find all alpha-2 codes [here](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). |
 | `maxRows` | `10` | How many countries should be displayed. Will be overwritten by config option `countryList`. |
-| `title` | `'Paralympic Winter Games 2022'` | The title above the medal table. |
+| `title` | `'Paris Summer Games 2024'` | The title above the medal table. |
 | `reloadInterval` | `1800000` (30 mins) | How often should the data be fetched. |
-| `provider` | `'paralympic'` | Specify the data source. Possible options: `'paralympic'`, `'bloomberg'` and `'nbc'`. |
-| `countryList` | `false` | Specify a list of country codes to display (alpha-2 code), e.g. `[ "NO", "AU", "US", "DE", "FR", "CA" ]`. Config option `maxRows` will be automatically overwritten accordingly. |
+| `provider` | `'nbc'` | Specify the data source. Possible options: `'nbc'` and `'bloomberg'`. |
+| `countryList` | `false` | Specify a list of country codes to display (alpha-2 code), e.g. `['NO', 'AU', 'US', 'DE', 'FR', 'CA']`. Config option `maxRows` will be automatically overwritten accordingly. |
 
 ## Developer
 
