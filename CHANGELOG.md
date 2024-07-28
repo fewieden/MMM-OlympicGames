@@ -1,5 +1,15 @@
 # MMM-OlympicGames Changelog
 
+## [Unreleased]
+
+### Fixed
+
+### Added
+
+### Changed
+
+### Removed
+
 ## [1.5.0]
 
 ### Fixed
