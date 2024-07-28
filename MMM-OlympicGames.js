@@ -11,7 +11,7 @@ Module.register('MMM-OlympicGames', {
     defaults: {
         maxRows: 10,
         highlight: false,
-        title: 'Paris 2024',
+        title: 'Paris Summer Games 2024',
         reloadInterval: 30 * 60 * 1000, // every 30 minutes
         provider: 'nbc',
         countryList: false
